@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
@@ -15,7 +14,7 @@ public class KafkaProducerService {
     private final Logger logger = LoggerFactory.getLogger(KafkaProducerService.class);
     private static final String TOPIC_NAME = "test-topic";
 
-    final KafkaTemplate<String, String> template;
+    private final KafkaTemplate<String, String> template;
 
     @Autowired
     KafkaProducerService(KafkaTemplate<String, String> template) {
